@@ -1,0 +1,180 @@
+mysql> use productss;
+Database changed
+mysql> CREATE TABLE Products (
+    ->     product_id INT PRIMARY KEY,
+    ->     product_name VARCHAR(100),
+    ->     category VARCHAR(50),
+    ->     unit_price DECIMAL(10, 2)
+    -> );
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> CREATE TABLE Productss (
+    -> )
+    ->
+    -> );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')
+
+)' at line 2
+mysql> CREATE TABLE productss (
+    ->     product_id INT PRIMARY KEY,
+    ->     product_name VARCHAR(100),
+    ->     category VARCHAR(50),
+    ->     unit_price DECIMAL(10, 2)
+    -> );
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> INSERT INTO productss (product_id, product_name, category, unit_price) VALUES
+    -> (101, 'Laptop', 'Electronics', 500.00),
+    -> (102, 'Smartphone', 'Electronics', 300.00),
+    -> (103, 'Headphones', 'Electronics', 30.00),
+    -> (104, 'Keyboard', 'Electronics', 20.00),
+    -> (105, 'Mouse', 'Electronics', 15.00);
+Query OK, 5 rows affected (0.01 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+mysql> SELECT * FROM productss;
++------------+--------------+-------------+------------+
+| product_id | product_name | category    | unit_price |
++------------+--------------+-------------+------------+
+|        101 | Laptop       | Electronics |     500.00 |
+|        102 | Smartphone   | Electronics |     300.00 |
+|        103 | Headphones   | Electronics |      30.00 |
+|        104 | Keyboard     | Electronics |      20.00 |
+|        105 | Mouse        | Electronics |      15.00 |
++------------+--------------+-------------+------------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT product_name, unit_price FROM productss;
++--------------+------------+
+| product_name | unit_price |
++--------------+------------+
+| Laptop       |     500.00 |
+| Smartphone   |     300.00 |
+| Headphones   |      30.00 |
+| Keyboard     |      20.00 |
+| Mouse        |      15.00 |
++--------------+------------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT * FROM productss WHERE category = 'Electronics';
++------------+--------------+-------------+------------+
+| product_id | product_name | category    | unit_price |
++------------+--------------+-------------+------------+
+|        101 | Laptop       | Electronics |     500.00 |
+|        102 | Smartphone   | Electronics |     300.00 |
+|        103 | Headphones   | Electronics |      30.00 |
+|        104 | Keyboard     | Electronics |      20.00 |
+|        105 | Mouse        | Electronics |      15.00 |
++------------+--------------+-------------+------------+
+5 rows in set (0.01 sec)
+
+mysql> SELECT product_id, product_name FROM productss
+    -> WHERE unit_price > 100;
++------------+--------------+
+| product_id | product_name |
++------------+--------------+
+|        101 | Laptop       |
+|        102 | Smartphone   |
++------------+--------------+
+2 rows in set (0.01 sec)
+
+mysql> SELECT AVG(unit_price) AS average_price FROM productss;
++---------------+
+| average_price |
++---------------+
+|    173.000000 |
++---------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT product_name, unit_price FROM productss
+    -> WHERE unit_price = (SELECT MAX(unit_price) FROM productss);
++--------------+------------+
+| product_name | unit_price |
++--------------+------------+
+| Laptop       |     500.00 |
++--------------+------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT product_name, unit_price FROM productss
+    -> ORDER BY unit_price DESC;
++--------------+------------+
+| product_name | unit_price |
++--------------+------------+
+| Laptop       |     500.00 |
+| Smartphone   |     300.00 |
+| Headphones   |      30.00 |
+| Keyboard     |      20.00 |
+| Mouse        |      15.00 |
++--------------+------------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT product_name, unit_price FROM productss
+    -> WHERE unit_price BETWEEN 20 AND 600;
++--------------+------------+
+| product_name | unit_price |
++--------------+------------+
+| Laptop       |     500.00 |
+| Smartphone   |     300.00 |
+| Headphones   |      30.00 |
+| Keyboard     |      20.00 |
++--------------+------------+
+4 rows in set (0.00 sec)
+
+mysql> SELECT product_name, category FROM productss
+    -> ORDER BY category ASC;
++--------------+-------------+
+| product_name | category    |
++--------------+-------------+
+| Laptop       | Electronics |
+| Smartphone   | Electronics |
+| Headphones   | Electronics |
+| Keyboard     | Electronics |
+| Mouse        | Electronics |
++--------------+-------------+
+5 rows in set (0.01 sec)
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| bme                |
+| college            |
+| db1                |
+| hari               |
+| information_schema |
+| mybd               |
+| mydb               |
+| mysql              |
+| performance_schema |
+| products           |
+| productss          |
+| shan               |
+| sys                |
++--------------------+
+13 rows in set (0.01 sec)
+
+mysql> use productss;
+Database changed
+mysql> ;show tables;
+ERROR:
+No query specified
+
++---------------------+
+| Tables_in_productss |
++---------------------+
+| products            |
+| productss           |
++---------------------+
+2 rows in set (0.02 sec)
+
+mysql> select * from productss;
++------------+--------------+-------------+------------+
+| product_id | product_name | category    | unit_price |
++------------+--------------+-------------+------------+
+|        101 | Laptop       | Electronics |     500.00 |
+|        102 | Smartphone   | Electronics |     300.00 |
+|        103 | Headphones   | Electronics |      30.00 |
+|        104 | Keyboard     | Electronics |      20.00 |
+|        105 | Mouse        | Electronics |      15.00 |
++------------+--------------+-------------+------------+
+5 rows in set (0.00 sec)
